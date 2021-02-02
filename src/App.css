@@ -64,3 +64,14 @@ nav a {
   align-items: center;
   margin: 20px 0;
 }
+
+.paginator {
+  width: 500px;
+  display: flex;
+  margin: auto;
+  margin-bottom: 20px;
+  list-style: none;
+  justify-content: space-between;
+  padding: 0;
+  padding-bottom: 20px;
+}

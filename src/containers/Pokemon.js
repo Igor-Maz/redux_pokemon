@@ -13,6 +13,9 @@ const Pokemon = (props) => {
     }, [])
 
     const ShowData = () => {
+        if (pokemonState.loading) {
+            return <p>loading...</p>
+        }
         if (!_.isEmpty(pokemonState.data[pokemonName])) {
             const pokeData = pokemonState.data[pokemonName]
             return (
@@ -38,9 +41,6 @@ const Pokemon = (props) => {
                     </div>
                 </div>
             )
-        }
-        if (pokemonState.loading) {
-            return <p>loading...</p>
         }
         if (pokemonState.errorMsg !== '') {
             return <p>{pokemonState.errorMsg}</p>
