@@ -41,3 +41,26 @@ nav a {
   color: black;
   text-decoration: none;
 }
+
+.pokemon {
+  width: 90%;
+  margin: auto;
+}
+
+.pokemon-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pokemon-wrapper .item {
+  width: 30%;
+}
+
+.search-wrapper{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}

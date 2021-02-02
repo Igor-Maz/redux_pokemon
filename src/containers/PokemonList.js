@@ -1,16 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import _ from 'lodash';
 import { useDispatch, useSelector } from 'react-redux';
 import { GetPokemonList } from '../redux/actions';
 import { Link } from 'react-router-dom';
 
-const PokemonList = () => {
+const PokemonList = (props) => {
+    const [search, setSearch] = useState('');
     const dispatch = useDispatch();
     const pokemonList = useSelector(state => state.pokemonList);
 
     useEffect(() => {
         FetchData(1)
-    });
+    }, []);
 
     const FetchData = (page = 1) => {
         dispatch(GetPokemonList(page))
@@ -40,7 +41,15 @@ const PokemonList = () => {
         return <p>unable to get data</p>
     }
 
-    return <div>{ShowData()}</div>
+    return (
+        <div>
+            <div className={'search-wrapper'}>
+                <p>Search: </p>
+                <input type='text' onChange={e=>setSearch(e.target.value)}/>
+                <button onClick={()=> props.history.push(`/pokemon/${search}`)}>Search</button>
+            </div>
+            {ShowData()}
+        </div>)
 };
 
 export default PokemonList
